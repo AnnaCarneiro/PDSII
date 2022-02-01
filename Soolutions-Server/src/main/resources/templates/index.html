@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <title>Solutions</title>
+</head>
+<body>
+<div align="center">
+    <h1>Solutions</h1>
+    <a th:href="@{|/new|}">Enter New Solution</a>
+    <br/><br/>
+    <table border="1" cellpadding="10">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Description</th>
+            <th>Causa</th>
+            <th>Solution</th>
+            <th>Status</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="soolution : ${listSoolutions}">
+            <td th:text="${soolution.id}">ID</td>
+            <td th:text="${soolution.description}">Description</td>
+            <td th:text="${soolution.causa}">Causa</td>
+            <td th:text="${soolution.solution}">Solution</td>
+            <td th:text="${soolution.status}">Status</td>
+            <td>
+                <a th:href="@{|/edit/${soolution.id}|}">Edit</a>
+
+                <a th:href="@{|/delete/${soolution.id}|}">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
